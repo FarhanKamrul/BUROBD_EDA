@@ -72,3 +72,47 @@ t_statistic, p_value = stats.ttest_1samp(df['TotalWealth'], 0)
 print(f'T statistic: {t_statistic}')
 print(f'P value: {p_value}')
 ```
+
+Some additional data visualization methods you can use:
+
+1. **Heatmap**: A heatmap is a two-dimensional graphical representation of data where the individual values that are contained in a matrix are represented as colors. It's great for visualizing correlation matrices.
+
+```python
+import seaborn as sns
+
+# Assuming that df_corr is a correlation matrix
+df_corr = df.corr()
+sns.heatmap(df_corr)
+plt.show()
+```
+
+2. **Pairplot**: This is a great method to visualize distributions and relationships between multiple variables.
+
+```python
+sns.pairplot(df)
+plt.show()
+```
+
+3. **Pie Chart**: Pie charts can be used to show percentages or proportional data.
+
+```python
+df['Gender'].value_counts().plot(kind='pie')
+plt.show()
+```
+
+4. **Violin Plot**: Violin plots are similar to box plots, except that they also show the probability density of the data at different values.
+
+```python
+sns.violinplot(x='Gender', y='TotalWealth', data=df)
+plt.show()
+```
+
+5. **Count Plot**: This is a great way to visualize counts of categorical data.
+
+```python
+sns.countplot(x='Gender', data=df)
+plt.show()
+```
+
+Remember to replace `'Gender'` and `'TotalWealth'` with your actual column names. Also, remember to uncomment the code when you're ready to run it.
+
